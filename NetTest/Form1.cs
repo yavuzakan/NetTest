@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -14,6 +15,7 @@ namespace NetTest
     public partial class Form1 : Form
     {
         public static string newline = Environment.NewLine;
+        string path = @"data.txt";
         public Form1()
         {
             InitializeComponent();
@@ -58,5 +60,14 @@ namespace NetTest
         {
             ping();
         }
+
+        public void data(String text2)
+        {
+            StreamWriter sw = File.AppendText(path);
+            sw.WriteLine(text2);
+
+        }
+
+
     }
 }
