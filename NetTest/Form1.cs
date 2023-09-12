@@ -46,6 +46,7 @@ namespace NetTest
 
                 string time = DateTime.Now.ToString(" dd/MM/yyyy h:mm:ss tt");
                 textBox2.Text += "Hatalı "+ time + newline;
+               // data(textBox2.Text);
             }
 
 
@@ -63,11 +64,16 @@ namespace NetTest
 
         public void data(String text2)
         {
-            StreamWriter sw = File.AppendText(path);
-            sw.WriteLine(text2);
 
+            //StreamWriter writer = new StreamWriter(path);
+            //StreamWriter sw = File.AppendText(path);
+            /// writer.WriteLine(text2);
+            System.IO.File.WriteAllText(@path, text2);
         }
 
-
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            data(textBox2.Text);
+        }
     }
 }
